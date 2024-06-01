@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block title %}{{ legend }}{% endblock %}
+{% block content %}
+    <div class="content">
+        <h1>{{ legend }}</h1>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <p>{{ form.title.label }}<br>{{ form.title(size=32) }}</p>
+            <p>{{ form.content.label }}<br>{{ form.content(rows=10, cols=40) }}</p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+{% endblock %}

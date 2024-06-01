@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}{{ survey.question }}{% endblock %}
+{% block content %}
+    <div class="content">
+        <h1>{{ survey.question }}</h1>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <p>{{ form.option.label }}<br>{{ form.option() }}</p>
+            <p>{{ form.submit() }}</p>
+        </form>
+        <h2>Results</h2>
+        <ul>
+            {% for option in survey.options %}
+                <li>{{ option.option_text }}: {{ option.votes }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

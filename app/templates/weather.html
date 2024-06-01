@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}Weather{% endblock %}
+{% block content %}
+    <div class="content">
+        <h1>Weather Information</h1>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <p>{{ form.city.label }}<br>{{ form.city(size=32) }}</p>
+            <p>{{ form.submit() }}</p>
+        </form>
+        {% if weather_data %}
+            <h2>Weather in {{ weather_data.city }}</h2>
+            <p>Temperature: {{ weather_data.temperature }} °C</p>
+            <p>Description: {{ weather_data.description }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
